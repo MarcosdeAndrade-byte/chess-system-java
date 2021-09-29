@@ -1,6 +1,10 @@
 package application;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import chess.ChessPiece;
+import chess.ChessPosition;
 import chess.Color;
 
 public class UI {
@@ -27,6 +31,20 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+	
+	public static ChessPosition readChessPosition(Scanner sc){
+		try {
+			String string = sc.nextLine();
+			char column = string.charAt(0);
+			int row = Integer.parseInt(string.substring(1));
+			return new ChessPosition(column,row);
+		}
+		catch(RuntimeException e){
+			throw new InputMismatchException("Error reading chessPosition. Valid values are from a1 to h8.");
+		}
+	}
+	
+	
 	// O método printBoard tem como argumento uma matriz do ChessPiece[][] que tem o
 	// nome de pieces
 	public static void printBoard(ChessPiece[][] pieces) {
@@ -43,16 +61,7 @@ public class UI {
 	}
 
 	// Método do tipo Void para mudar o conteúdo da peça de acordo com seu conteúdo
-	private static void printPiece(ChessPiece piece) {
-		/*
-		if (piece == null) {
-			System.out.print("-");
-		}
-		else {
-			System.out.print(piece);
-		}
-		System.out.print(" ");*/
-		
+	private static void printPiece(ChessPiece piece) {		
     	if (piece == null) {
             System.out.print("-");
         }
