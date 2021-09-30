@@ -27,6 +27,7 @@ public class UI {
 		System.out.flush();
 	}
 
+	
 	// Cores de fundo
 	public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
 	public static final String ANSI_RED_BACKGROUND = "\u001B[41m";
@@ -37,6 +38,7 @@ public class UI {
 	public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
+	
 	public static ChessPosition readChessPosition(Scanner sc) {
 		try {
 			String string = sc.nextLine();
@@ -48,6 +50,7 @@ public class UI {
 		}
 	}
 
+	
 	// O método printBoard tem como argumento uma matriz do ChessPiece[][] que tem o
 	// nome de pieces
 	public static void printBoard(ChessPiece[][] pieces) {
@@ -55,7 +58,21 @@ public class UI {
 			System.out.print((8 - i) + " ");
 			for (int j = 0; j < pieces.length; j++) {
 				// O método printPiece é chamado para imprimir a matriz na tela
-				printPiece(pieces[i][j]);
+				printPiece(pieces[i][j],false);
+			}
+			// Quebra de linha
+			System.out.println();
+		}
+		System.out.println("  a b c d e f g h");
+	}
+	
+	
+	public static void printBoard(ChessPiece[][] pieces,boolean[][] possibleMovies) {
+		for (int i = 0; i < pieces.length; i++) {
+			System.out.print((8 - i) + " ");
+			for (int j = 0; j < pieces.length; j++) {
+				// O método printPiece é chamado para imprimir a matriz na tela
+				printPiece(pieces[i][j],possibleMovies[i][j]);
 			}
 			// Quebra de linha
 			System.out.println();
@@ -63,10 +80,14 @@ public class UI {
 		System.out.println("  a b c d e f g h");
 	}
 
+	
 	// Método do tipo Void para mudar o conteúdo da peça de acordo com seu conteúdo
-	private static void printPiece(ChessPiece piece) {
+	private static void printPiece(ChessPiece piece,boolean background){
+		if(background){
+			System.out.print(ANSI_BLUE_BACKGROUND);
+		}
 		if (piece == null) {
-			System.out.print("-");
+			System.out.print("-" + ANSI_RESET);
 		} else {
 			if (piece.getColor() == Color.WHITE) {
 				System.out.print(ANSI_WHITE + piece + ANSI_RESET);
@@ -75,6 +96,5 @@ public class UI {
 			}
 		}
 		System.out.print(" ");
-
 	}
 }

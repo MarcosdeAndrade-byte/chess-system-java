@@ -35,6 +35,12 @@ public class ChessMatch {
 		// Possível erro
 		return mat;
 	}
+	
+	public boolean[][] possibleMovies(ChessPosition sourcePosition){
+		Position position = sourcePosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
 
 	// Deslocamento e possível captura da peça
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
