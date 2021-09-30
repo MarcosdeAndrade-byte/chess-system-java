@@ -4,7 +4,7 @@ import boardgame.Board;
 import boardgame.Piece;
 
 //ChessPiece herda os atributos Piece
-public class ChessPiece extends Piece {
+public abstract class ChessPiece extends Piece {
 	
 	// Atributo do tipo cor
 	private Color color;
@@ -20,4 +20,5 @@ public class ChessPiece extends Piece {
 		return color;
 	}
 
+	
 }
