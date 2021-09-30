@@ -30,6 +30,12 @@ public class Position {
 	public void setColumn(int column) {
 		this.column = column;
 	}
+	
+	//Método para atualizar os valores de uma posição
+	public void setValues(int row,int column){
+		this.row = row;
+		this.column = column;
+	}
     
 	//Método toString
 	@Override
