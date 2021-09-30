@@ -5,7 +5,8 @@ podemos ver os conceitos fundamentais de orientação a objetos,dentre eles:enum
 composição,herança,polimorfismo,tratamento de exceções e etc...
 
 ## 🚀 Começando
-Para obter uma cópia do projeto,basta clonar o repositório ou baixar o arquivo zip. 
+Para obter uma cópia do projeto,basta clonar o repositório ou baixar o arquivo zip. \
+(Projeto em desenvolvimento)
 
 ### 📋 Pré-requisitos
 
