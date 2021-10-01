@@ -20,6 +20,10 @@ public abstract class ChessPiece extends Piece {
 	public Color getColor() {
 		return color;
 	}
+	
+	public ChessPosition getChessPosition(){
+		return ChessPosition.fromPosition(position);
+	}
 
 	//Método para saber se é um oponente ou não
 	protected boolean isThereOpponentPiece(Position position){
