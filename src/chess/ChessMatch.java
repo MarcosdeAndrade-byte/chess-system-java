@@ -9,6 +9,8 @@ import chess.pieces.Rook;
 //ChessMatch jogada de xadrez
 public class ChessMatch {
 
+	private int turn;
+	private Color currentPlayer;
 	// Atributo do tipo board
 	private Board board;
 
@@ -17,9 +19,19 @@ public class ChessMatch {
 	// Construtor da classe ChessMatch
 	public ChessMatch() {
 		board = new Board(8, 8);
+		turn = 1;
+		currentPlayer = Color.WHITE;
 		initialSetup();
 	}
+	
+	public int getTurn() {
+		return turn;
+	}
 
+	public Color getCurrentPlayer() {
+		return currentPlayer;
+	}
+	
 	// O método ChessPiece vai retornar uma matriz de peças de xadrez
 	// O programa vai ter acesso a camada de xadrez,não podendo acessar Piece,mas
 	// ChessPiece;
@@ -52,6 +64,7 @@ public class ChessMatch {
 		validateTargetPosition(source,target);
 		// makeMove ainda vai ser criada
 		Piece capturedPiece = makeMove(source, target);
+		nextTurn();
 		return (ChessPiece) capturedPiece;
 	}
 	
@@ -74,10 +87,18 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
 		}
+		if(currentPlayer != ((ChessPiece)board.piece(position)).getColor()){
+			throw new ChessException("The chosen piece is not yours");
+		}
 		if (!board.piece(position).isThereAnyPossibleMove()) {
 			// Se não tiver nenhum movimento possível
 			throw new ChessException("There is no possible moves for the chosen piece");
 		}
+	}
+	
+	private void nextTurn(){
+		turn++;
+		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 
 	// Função para colocar as peças no tabuleiro
