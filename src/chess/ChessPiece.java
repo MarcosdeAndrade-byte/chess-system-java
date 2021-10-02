@@ -9,6 +9,7 @@ public abstract class ChessPiece extends Piece {
 	
 	// Atributo do tipo cor
 	private Color color;
+	private int moveCount;
 
 	// Construtor
 	public ChessPiece(Board board, Color color) {
@@ -19,6 +20,18 @@ public abstract class ChessPiece extends Piece {
 	// Get do tipo color
 	public Color getColor() {
 		return color;
+	}
+	
+	public int getMoveCount() {
+		return moveCount;
+	}
+	
+	public void increaseMoveCount() {
+		moveCount++;
+	}
+	
+	public void decreaseMoveCount() {
+		moveCount--;
 	}
 	
 	public ChessPosition getChessPosition(){
