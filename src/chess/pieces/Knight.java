@@ -5,16 +5,16 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-public class King extends ChessPiece {
+public class Knight extends ChessPiece {
 
 	// Construtor (repassa a chamada para superclasse)
-	public King(Board board, Color color) {
+	public Knight(Board board, Color color) {
 		super(board, color);
 	}
 
 	@Override
 	public String toString() {
-		return "R";
+		return "C";
 	}
 
 	private boolean canMove(Position position) {
@@ -28,53 +28,46 @@ public class King extends ChessPiece {
 
 		Position p = new Position(0, 0);
 
-		// Above
-		p.setValues(position.getRow() - 1, position.getColumn());
+		p.setValues(position.getRow() - 1, position.getColumn() - 2);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// below
-		p.setValues(position.getRow() + 1, position.getColumn());
+		p.setValues(position.getRow() - 2, position.getColumn() - 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// left
-		p.setValues(position.getRow(), position.getColumn() - 1);
+		p.setValues(position.getRow() - 2, position.getColumn() + 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// Right
-		p.setValues(position.getRow(), position.getColumn() + 1);
+		p.setValues(position.getRow() - 1, position.getColumn() + 2);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// Nw
-		p.setValues(position.getRow() - 1, position.getColumn() - 1);
+		p.setValues(position.getRow() + 1, position.getColumn() + 2);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// Nw
-		p.setValues(position.getRow() - 1, position.getColumn() + 1);
+		p.setValues(position.getRow() + 2, position.getColumn() + 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// Sw
-		p.setValues(position.getRow() + 1, position.getColumn() - 1);
+		p.setValues(position.getRow() + 2, position.getColumn() - 1);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 
-		// Sw
-		p.setValues(position.getRow() + 1, position.getColumn() + 1);
+		p.setValues(position.getRow() + 1, position.getColumn() - 2);
 		if (getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
+
 		return mat;
 	}
 
