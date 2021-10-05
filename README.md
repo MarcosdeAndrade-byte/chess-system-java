@@ -6,7 +6,6 @@ composição,herança,polimorfismo,tratamento de exceções e etc...
 
 ## 🚀 Começando
 Para obter uma cópia do projeto,basta clonar o repositório ou baixar o arquivo zip. \
-(Projeto em desenvolvimento)
 
 ### 📋 Pré-requisitos
 
@@ -36,6 +35,14 @@ Mencione as ferramentas que você usou para criar seu projeto
 ## 📌 Versão
 
 Nós usamos o GitHub para controle de versão. Para as versões disponíveis, observe os commits deste repositório.
+
+## :clipboard: Diagrama UML
+![](https://github.com/MarcosdeAndrade-byte/chess-system-java/blob/main/img/chess-system-design.png)
+
+## :chess_pawn: Jogadas especiais
+![](https://github.com/MarcosdeAndrade-byte/chess-system-java/blob/main/img/Enpassant.png)
+![](https://github.com/MarcosdeAndrade-byte/chess-system-java/blob/main/img/Promotion.png)
+![](https://github.com/MarcosdeAndrade-byte/chess-system-java/blob/main/img/castiling.png)
 
 ## ✒️ Autores
 
